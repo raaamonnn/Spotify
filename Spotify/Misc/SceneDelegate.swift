@@ -6,17 +6,41 @@
 //
 
 import UIKit
+import SwiftUI
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
-
+    let appEnvironment: AppEnvironment
+    
+    override init() {
+        let svcAuth = SVCAuth()
+        let repoAuth = REPOAuth(svcAuth: svcAuth)
+        let svcSpotify = SVCSpotify(repoAuth: repoAuth)
+        let repoSpotify = REPOSpotify(svcSpotify: svcSpotify)
+        appEnvironment = AppEnvironment(repoAuth: repoAuth, repoSpotify: repoSpotify)
+        super.init()
+    }
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
-        // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
-        // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
-        // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
-        guard let _ = (scene as? UIWindowScene) else { return }
+        guard let windowScene = (scene as? UIWindowScene) else { return }
+        
+        let viewController: UIViewController
+        
+        if !appEnvironment.repoAuth.isAuthenticated {
+            let navVC = UINavigationController(rootViewController: VCWelcome(appEnvironment: appEnvironment))
+            navVC.navigationBar.prefersLargeTitles = true
+            navVC.viewControllers.first?.navigationItem.largeTitleDisplayMode = .always
+            viewController = navVC
+            
+        } else {
+            viewController = VCTabBar(appEnvironment: appEnvironment)
+        }
+        
+        let window = UIWindow(windowScene: windowScene)
+        window.rootViewController = viewController
+        window.makeKeyAndVisible()
+        self.window = window
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
@@ -49,7 +73,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Save changes in the application's managed object context when the application transitions to the background.
         (UIApplication.shared.delegate as? AppDelegate)?.saveContext()
     }
-
 
 }
 
