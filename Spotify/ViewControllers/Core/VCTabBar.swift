@@ -36,6 +36,10 @@ class VCTabBar: UITabBarController {
         let searchNav = UINavigationController(rootViewController: searchTab)
         let libraryNav = UINavigationController(rootViewController: libraryTab)
         
+        homeNav.navigationBar.tintColor = .label
+        searchNav.navigationBar.tintColor = .label
+        libraryNav.navigationBar.tintColor = .label
+        
         homeNav.tabBarItem = UITabBarItem(title: "Browse", image: UIImage(systemName: "house"), tag: 1)
         searchTab.tabBarItem = UITabBarItem(title: "Search", image: UIImage(systemName: "magnifyingglass"), tag: 1)
         libraryTab.tabBarItem = UITabBarItem(title: "Library", image: UIImage(systemName: "music.note.list"), tag: 1)

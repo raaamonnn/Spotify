@@ -71,22 +71,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "F5997643-B783-4475-983B-73F66602CFB6"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Spotify/Data Repositories/REPOSpotify.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "22"
-            endingLineNumber = "22"
-            landmarkName = "init(svcSpotify:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "0C709CFC-4FA8-47F9-9A5F-37B6D1400A4E"
             shouldBeEnabled = "No"
             ignoreCount = "0"
@@ -94,8 +78,8 @@
             filePath = "Spotify/Data Repositories/REPOSpotify.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "18"
-            endingLineNumber = "18"
+            startingLineNumber = "23"
+            endingLineNumber = "23"
             landmarkName = "init(svcSpotify:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -110,8 +94,8 @@
             filePath = "Spotify/Data Repositories/REPOSpotify.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "14"
-            endingLineNumber = "14"
+            startingLineNumber = "19"
+            endingLineNumber = "19"
             landmarkName = "init(svcSpotify:)"
             landmarkType = "7">
          </BreakpointContent>

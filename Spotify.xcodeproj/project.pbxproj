@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -23,7 +23,6 @@
 		EB22147227B5C91500937EEE /* REPOAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB22147127B5C91500937EEE /* REPOAuth.swift */; };
 		EB22147527B5C94C00937EEE /* AppEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB22147427B5C94C00937EEE /* AppEnvironment.swift */; };
 		EB22147827B5CB1700937EEE /* UserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB22147727B5CB1700937EEE /* UserProfile.swift */; };
-		EB22147B27B5CB2F00937EEE /* Artist.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB22147A27B5CB2F00937EEE /* Artist.swift */; };
 		EB22147E27B5CB3A00937EEE /* AudioTrack.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB22147D27B5CB3A00937EEE /* AudioTrack.swift */; };
 		EB22148127B5CB4600937EEE /* Playlist.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB22148027B5CB4600937EEE /* Playlist.swift */; };
 		EB22148627B5D2F400937EEE /* VCHome.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB22148527B5D2F400937EEE /* VCHome.swift */; };
@@ -37,6 +36,9 @@
 		EB3964A327B74E560005B6C4 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB3964A227B74E560005B6C4 /* Extensions.swift */; };
 		EB3964A627B761910005B6C4 /* AuthResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB3964A527B761910005B6C4 /* AuthResponse.swift */; };
 		EBAD353627B85A6900744E95 /* SVCSpotify.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBAD353527B85A6900744E95 /* SVCSpotify.swift */; };
+		EBD4CED227BB021900BDA3C2 /* Album.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBD4CED127BB021900BDA3C2 /* Album.swift */; };
+		EBD4CED627BB2E7900BDA3C2 /* RecommendedGenres.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBD4CED527BB2E7900BDA3C2 /* RecommendedGenres.swift */; };
+		EBD4CED927BB34B300BDA3C2 /* Recommendations.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBD4CED827BB34B300BDA3C2 /* Recommendations.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -60,7 +62,6 @@
 		EB22147127B5C91500937EEE /* REPOAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = REPOAuth.swift; sourceTree = "<group>"; };
 		EB22147427B5C94C00937EEE /* AppEnvironment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppEnvironment.swift; sourceTree = "<group>"; };
 		EB22147727B5CB1700937EEE /* UserProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfile.swift; sourceTree = "<group>"; };
-		EB22147A27B5CB2F00937EEE /* Artist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Artist.swift; sourceTree = "<group>"; };
 		EB22147D27B5CB3A00937EEE /* AudioTrack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioTrack.swift; sourceTree = "<group>"; };
 		EB22148027B5CB4600937EEE /* Playlist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Playlist.swift; sourceTree = "<group>"; };
 		EB22148527B5D2F400937EEE /* VCHome.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VCHome.swift; sourceTree = "<group>"; };
@@ -74,6 +75,9 @@
 		EB3964A227B74E560005B6C4 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		EB3964A527B761910005B6C4 /* AuthResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthResponse.swift; sourceTree = "<group>"; };
 		EBAD353527B85A6900744E95 /* SVCSpotify.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SVCSpotify.swift; sourceTree = "<group>"; };
+		EBD4CED127BB021900BDA3C2 /* Album.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Album.swift; sourceTree = "<group>"; };
+		EBD4CED527BB2E7900BDA3C2 /* RecommendedGenres.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendedGenres.swift; sourceTree = "<group>"; };
+		EBD4CED827BB34B300BDA3C2 /* Recommendations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recommendations.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,7 +106,6 @@
 				D2B8685847393BFEC5F0858F /* Pods-Spotify.debug.xcconfig */,
 				3994DA42FC1FF4E3A3FAB998 /* Pods-Spotify.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -145,10 +148,12 @@
 			isa = PBXGroup;
 			children = (
 				EB22147727B5CB1700937EEE /* UserProfile.swift */,
-				EB22147A27B5CB2F00937EEE /* Artist.swift */,
 				EB22147D27B5CB3A00937EEE /* AudioTrack.swift */,
 				EB22148027B5CB4600937EEE /* Playlist.swift */,
 				EB3964A527B761910005B6C4 /* AuthResponse.swift */,
+				EBD4CED127BB021900BDA3C2 /* Album.swift */,
+				EBD4CED527BB2E7900BDA3C2 /* RecommendedGenres.swift */,
+				EBD4CED827BB34B300BDA3C2 /* Recommendations.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -355,7 +360,9 @@
 			files = (
 				EB3964A327B74E560005B6C4 /* Extensions.swift in Sources */,
 				EB22144027B5C2E700937EEE /* VCSearch.swift in Sources */,
+				EBD4CED227BB021900BDA3C2 /* Album.swift in Sources */,
 				EB22144527B5C31C00937EEE /* VCLibrary.swift in Sources */,
+				EBD4CED927BB34B300BDA3C2 /* Recommendations.swift in Sources */,
 				EB22144B27B5C36800937EEE /* VCAuth.swift in Sources */,
 				EB22148627B5D2F400937EEE /* VCHome.swift in Sources */,
 				EB22148127B5CB4600937EEE /* Playlist.swift in Sources */,
@@ -377,7 +384,7 @@
 				EB22147827B5CB1700937EEE /* UserProfile.swift in Sources */,
 				EB2214BA27B6122500937EEE /* VCWelcome.swift in Sources */,
 				EB22141B27B5B9A900937EEE /* SceneDelegate.swift in Sources */,
-				EB22147B27B5CB2F00937EEE /* Artist.swift in Sources */,
+				EBD4CED627BB2E7900BDA3C2 /* RecommendedGenres.swift in Sources */,
 				EB22145E27B5C55B00937EEE /* VCPlaylist.swift in Sources */,
 				EB3964A627B761910005B6C4 /* AuthResponse.swift in Sources */,
 				EB22143927B5C2A000937EEE /* VCTabBar.swift in Sources */,
