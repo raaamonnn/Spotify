@@ -17,7 +17,18 @@ final class REPOSpotify {
     
     init(svcSpotify: SVCSpotify) {
         self.svcSpotify = svcSpotify
+    }
+    
+    public func loadData(completionHandler: @escaping () -> Void) {
+        
+        let group = DispatchGroup()
+        
+        group.enter()
         svcSpotify.getCurrentUserProfile { [weak self] result in
+            
+            defer {
+                group.leave()
+            }
             switch result {
             case .success(let model):
                 self?.userProfile = model
@@ -25,7 +36,13 @@ final class REPOSpotify {
             print("[-] Error Getting Current User Profile \(error.localizedDescription)")
             }
         }
+        
+        group.enter()
         svcSpotify.getNewReleases { [weak self] result in
+            
+            defer {
+                group.leave()
+            }
             switch result {
             case .success(let model):
                 self?.newReleases = model
@@ -33,7 +50,13 @@ final class REPOSpotify {
             print("[-] Error Getting New Releases \(error.localizedDescription)")
             }
         }
+            
+        group.enter()
         svcSpotify.getFeaturedPlaylists { [weak self] result in
+            
+            defer {
+                group.leave()
+            }
             switch result {
             case .success(let model):
                 self?.featuredPlaylists = model
@@ -42,7 +65,12 @@ final class REPOSpotify {
             }
         }
         
+        group.enter()
         svcSpotify.getRecommendedGenre { [weak self] result in
+            
+            defer {
+                group.leave()
+            }
             switch result {
             case .success(let model):
                 let genres = model.genres
@@ -52,7 +80,13 @@ final class REPOSpotify {
                         seeds.insert(random)
                     }
                 }
-                svcSpotify.getRecommendations(genres: seeds) { result in
+                
+                group.enter()
+                self?.svcSpotify.getRecommendations(genres: seeds) { result in
+                    
+                    defer {
+                        group.leave()
+                    }
                     switch result {
                     case .success(let model):
                         self?.recommendations = model
@@ -63,6 +97,11 @@ final class REPOSpotify {
             case .failure(let error):
             print("[-] Error Getting Recommended Genres  \(error.localizedDescription)")
             }
+        }
+        
+        group.notify(queue: .main) {
+            print("[+] Fetched all Spotify Data")
+            completionHandler()
         }
     }
 }

@@ -35,10 +35,17 @@
 		EB2E635327BA0CD400BB633D /* VMSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB2E635227BA0CD400BB633D /* VMSettings.swift */; };
 		EB3964A327B74E560005B6C4 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB3964A227B74E560005B6C4 /* Extensions.swift */; };
 		EB3964A627B761910005B6C4 /* AuthResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB3964A527B761910005B6C4 /* AuthResponse.swift */; };
+		EB5A55B127C0514200A7584B /* VMFeaturedPlaylist.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5A55B027C0514200A7584B /* VMFeaturedPlaylist.swift */; };
+		EB5A55B427C051F800A7584B /* VMRecommendedTrack.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5A55B327C051F800A7584B /* VMRecommendedTrack.swift */; };
+		EB5A55B727C09B3D00A7584B /* CRVHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5A55B627C09B3D00A7584B /* CRVHeader.swift */; };
 		EBAD353627B85A6900744E95 /* SVCSpotify.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBAD353527B85A6900744E95 /* SVCSpotify.swift */; };
 		EBD4CED227BB021900BDA3C2 /* Album.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBD4CED127BB021900BDA3C2 /* Album.swift */; };
 		EBD4CED627BB2E7900BDA3C2 /* RecommendedGenres.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBD4CED527BB2E7900BDA3C2 /* RecommendedGenres.swift */; };
 		EBD4CED927BB34B300BDA3C2 /* Recommendations.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBD4CED827BB34B300BDA3C2 /* Recommendations.swift */; };
+		EBDEE8B127BF027E000FC0DF /* CVCNewRelease.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBDEE8B027BF027E000FC0DF /* CVCNewRelease.swift */; };
+		EBDEE8B427BF0290000FC0DF /* CVCFeaturedPlaylist.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBDEE8B327BF0290000FC0DF /* CVCFeaturedPlaylist.swift */; };
+		EBDEE8B727BF02A2000FC0DF /* CVCRecommendedTrack.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBDEE8B627BF02A2000FC0DF /* CVCRecommendedTrack.swift */; };
+		EBDEE8BA27BF04BE000FC0DF /* VMNewReleases.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBDEE8B927BF04BE000FC0DF /* VMNewReleases.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -74,10 +81,17 @@
 		EB2E635227BA0CD400BB633D /* VMSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VMSettings.swift; sourceTree = "<group>"; };
 		EB3964A227B74E560005B6C4 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		EB3964A527B761910005B6C4 /* AuthResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthResponse.swift; sourceTree = "<group>"; };
+		EB5A55B027C0514200A7584B /* VMFeaturedPlaylist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VMFeaturedPlaylist.swift; sourceTree = "<group>"; };
+		EB5A55B327C051F800A7584B /* VMRecommendedTrack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VMRecommendedTrack.swift; sourceTree = "<group>"; };
+		EB5A55B627C09B3D00A7584B /* CRVHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CRVHeader.swift; sourceTree = "<group>"; };
 		EBAD353527B85A6900744E95 /* SVCSpotify.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SVCSpotify.swift; sourceTree = "<group>"; };
 		EBD4CED127BB021900BDA3C2 /* Album.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Album.swift; sourceTree = "<group>"; };
 		EBD4CED527BB2E7900BDA3C2 /* RecommendedGenres.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendedGenres.swift; sourceTree = "<group>"; };
 		EBD4CED827BB34B300BDA3C2 /* Recommendations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recommendations.swift; sourceTree = "<group>"; };
+		EBDEE8B027BF027E000FC0DF /* CVCNewRelease.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CVCNewRelease.swift; sourceTree = "<group>"; };
+		EBDEE8B327BF0290000FC0DF /* CVCFeaturedPlaylist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CVCFeaturedPlaylist.swift; sourceTree = "<group>"; };
+		EBDEE8B627BF02A2000FC0DF /* CVCRecommendedTrack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CVCRecommendedTrack.swift; sourceTree = "<group>"; };
+		EBDEE8B927BF04BE000FC0DF /* VMNewReleases.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VMNewReleases.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -162,6 +176,9 @@
 			isa = PBXGroup;
 			children = (
 				EB2E635227BA0CD400BB633D /* VMSettings.swift */,
+				EBDEE8B927BF04BE000FC0DF /* VMNewReleases.swift */,
+				EB5A55B027C0514200A7584B /* VMFeaturedPlaylist.swift */,
+				EB5A55B327C051F800A7584B /* VMRecommendedTrack.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -169,6 +186,8 @@
 		EB22143227B5BA7300937EEE /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				EB5A55B627C09B3D00A7584B /* CRVHeader.swift */,
+				EBDEE8AF27BF0240000FC0DF /* Collection View Cells */,
 				EB2214A927B60A1D00937EEE /* Helper */,
 			);
 			path = Views;
@@ -244,6 +263,16 @@
 				EB2214A527B60A0700937EEE /* IBView.swift */,
 			);
 			path = Helper;
+			sourceTree = "<group>";
+		};
+		EBDEE8AF27BF0240000FC0DF /* Collection View Cells */ = {
+			isa = PBXGroup;
+			children = (
+				EBDEE8B027BF027E000FC0DF /* CVCNewRelease.swift */,
+				EBDEE8B327BF0290000FC0DF /* CVCFeaturedPlaylist.swift */,
+				EBDEE8B627BF02A2000FC0DF /* CVCRecommendedTrack.swift */,
+			);
+			path = "Collection View Cells";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -363,6 +392,7 @@
 				EBD4CED227BB021900BDA3C2 /* Album.swift in Sources */,
 				EB22144527B5C31C00937EEE /* VCLibrary.swift in Sources */,
 				EBD4CED927BB34B300BDA3C2 /* Recommendations.swift in Sources */,
+				EB5A55B727C09B3D00A7584B /* CRVHeader.swift in Sources */,
 				EB22144B27B5C36800937EEE /* VCAuth.swift in Sources */,
 				EB22148627B5D2F400937EEE /* VCHome.swift in Sources */,
 				EB22148127B5CB4600937EEE /* Playlist.swift in Sources */,
@@ -376,17 +406,23 @@
 				EB2214A627B60A0700937EEE /* IBView.swift in Sources */,
 				EB2214A327B609FF00937EEE /* IBButton.swift in Sources */,
 				EBAD353627B85A6900744E95 /* SVCSpotify.swift in Sources */,
+				EBDEE8B427BF0290000FC0DF /* CVCFeaturedPlaylist.swift in Sources */,
+				EBDEE8B727BF02A2000FC0DF /* CVCRecommendedTrack.swift in Sources */,
 				EB22141927B5B9A900937EEE /* AppDelegate.swift in Sources */,
 				EB22145427B5C50500937EEE /* VCProfile.swift in Sources */,
 				EB22142327B5B9AA00937EEE /* Spotify.xcdatamodeld in Sources */,
 				EB2E635327BA0CD400BB633D /* VMSettings.swift in Sources */,
 				EB22145927B5C54C00937EEE /* VCPlayer.swift in Sources */,
 				EB22147827B5CB1700937EEE /* UserProfile.swift in Sources */,
+				EB5A55B127C0514200A7584B /* VMFeaturedPlaylist.swift in Sources */,
 				EB2214BA27B6122500937EEE /* VCWelcome.swift in Sources */,
+				EBDEE8BA27BF04BE000FC0DF /* VMNewReleases.swift in Sources */,
 				EB22141B27B5B9A900937EEE /* SceneDelegate.swift in Sources */,
 				EBD4CED627BB2E7900BDA3C2 /* RecommendedGenres.swift in Sources */,
+				EBDEE8B127BF027E000FC0DF /* CVCNewRelease.swift in Sources */,
 				EB22145E27B5C55B00937EEE /* VCPlaylist.swift in Sources */,
 				EB3964A627B761910005B6C4 /* AuthResponse.swift in Sources */,
+				EB5A55B427C051F800A7584B /* VMRecommendedTrack.swift in Sources */,
 				EB22143927B5C2A000937EEE /* VCTabBar.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
