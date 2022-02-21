@@ -22,6 +22,45 @@ final class SVCSpotify {
         case failedToGetData
     }
     
+    //MARK: - Albums
+    public func getAlbumDetails(for album: Album, completion: @escaping (Result<AlbumDetails, Error>) -> Void) {
+        createRequest(with: URL(string: Constants.baseUrl + "/albums/" + album.id), type: .GET) { request in
+            let task = URLSession.shared.dataTask(with: request) { data, response, error in
+                guard let data = data, error == nil else {
+                    completion(.failure(APIError.failedToGetData))
+                    return
+                }
+                do {
+                    let result = try JSONDecoder().decode(AlbumDetails.self, from: data)
+                    completion(.success(result))
+                } catch {
+                    completion(.failure(error))
+                }
+            }
+            task.resume()
+        }
+    }
+    
+    //MARK: - Playlists
+    public func getPlaylistDetails(for playlist: Playlist, completion: @escaping (Result<PlaylistDetails, Error>) -> Void) {
+        createRequest(with: URL(string: Constants.baseUrl + "/playlists/" + playlist.id), type: .GET) { request in
+            let task = URLSession.shared.dataTask(with: request) { data, response, error in
+                guard let data = data, error == nil else {
+                    completion(.failure(APIError.failedToGetData))
+                    return
+                }
+                do {
+                    let result = try JSONDecoder().decode(PlaylistDetails.self, from: data)
+                    completion(.success(result))
+                } catch {
+                    completion(.failure(error))
+                }
+            }
+            task.resume()
+        }
+    }
+    
+    //MARK: - Profile
     public func getCurrentUserProfile(completion: @escaping (Result<UserProfile, Error>) -> Void) {
         createRequest(with: URL(string: Constants.baseUrl + "/me"), type: .GET) { request in
             let task = URLSession.shared.dataTask(with: request) { data, response, error in
@@ -41,6 +80,7 @@ final class SVCSpotify {
         }
     }
     
+    //MARK: - Home
     public func getNewReleases(completion: @escaping (Result<NewReleasesResponse, Error>) -> Void) {
         createRequest(with: URL(string: Constants.baseUrl + "/browse/new-releases?limit=50"), type: .GET) { request in
             let task = URLSession.shared.dataTask(with: request) { data, response, error in
@@ -114,6 +154,8 @@ final class SVCSpotify {
             task.resume()
         }
     }
+    
+    //MARK: - Helper Function
     private func createRequest(with url: URL?, type: HttpMethod, completion: @escaping (URLRequest) -> Void) {
         repoAuth.withValidToken { token in
             guard let apiURL = url else {

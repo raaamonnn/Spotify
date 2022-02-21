@@ -15,6 +15,19 @@ struct AlbumsResponse: Codable {
     let items: [Album]
 }
 
+struct AlbumDetails: Codable {
+    let album_type: String
+    let total_tracks: Int
+    let available_markets: [String]
+    let external_urls: [String: String]
+    let href, id: String
+    let images: [SpotifyImage]
+    let name, release_date, release_date_precision: String
+    let type, uri: String
+    let artists: [Artist]
+    let tracks: TrackResponse
+}
+
 struct Album: Codable  {
     let album_type: String
     let available_markets: [String]

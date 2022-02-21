@@ -48,7 +48,6 @@ class CVCNewRelease: UICollectionViewCell {
         contentView.layer.cornerRadius = 12
         contentView.addSubview(albumCoverImageView)
         contentView.addSubview(albumName)
-        
         contentView.addSubview(numberOfTracksLabel)
         contentView.addSubview(artistNameLabel)
         NSLayoutConstraint.activate([

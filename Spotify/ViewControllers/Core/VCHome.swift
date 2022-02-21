@@ -7,16 +7,16 @@
 
 import UIKit
 
-enum BrowseSectionType: Int, CaseIterable {
-    case newReleases = 0
-    case featuredPlaylists = 1
-    case recommendedTracks = 2
-}
-
 class VCHome: UIViewController {
+    enum SectionType: Int, CaseIterable {
+        case newReleases = 0
+        case featuredPlaylists = 1
+        case recommendedTracks = 2
+    }
+    
     let appEnvironment: AppEnvironment
     private var collectionView: UICollectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewCompositionalLayout(sectionProvider: { (sectionIndex, environment) -> NSCollectionLayoutSection? in
-        return VCHome.createSectionLayout(index: BrowseSectionType(rawValue: sectionIndex) ?? BrowseSectionType(rawValue: 0)!)
+        return VCHome.createSectionLayout(index: SectionType(rawValue: sectionIndex) ?? SectionType(rawValue: 0)!)
     }))
     
     private let spinner: UIActivityIndicatorView = {
@@ -32,7 +32,7 @@ class VCHome: UIViewController {
         super.init(nibName: nil, bundle: .none)
     }
     
-    private static func createSectionLayout(index: BrowseSectionType) -> NSCollectionLayoutSection {
+    private static func createSectionLayout(index: SectionType) -> NSCollectionLayoutSection {
         
         switch index {
         case .newReleases:
@@ -150,7 +150,7 @@ class VCHome: UIViewController {
         collectionView.register(CVCNewRelease.self, forCellWithReuseIdentifier: CVCNewRelease.identifier)
         collectionView.register(CVCFeaturedPlaylist.self, forCellWithReuseIdentifier: CVCFeaturedPlaylist.identifier)
         collectionView.register(CVCRecommendedTrack.self, forCellWithReuseIdentifier: CVCRecommendedTrack.identifier)
-        collectionView.register(CRVHeader.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: CRVHeader.identifier)
+//        collectionView.register(CRVHeader.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: CRVHeader.identifier)
         
         collectionView.dataSource = self
         collectionView.delegate = self
@@ -165,7 +165,7 @@ class VCHome: UIViewController {
 
 extension VCHome: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        let sectionType = BrowseSectionType(rawValue: section)
+        let sectionType = SectionType(rawValue: section)
         switch sectionType {
         case .newReleases:
             return appEnvironment.repoSpotify.newReleases?.albums.items.count ?? 0
@@ -178,8 +178,30 @@ extension VCHome: UICollectionViewDataSource, UICollectionViewDelegate, UICollec
         }
     }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        collectionView.deselectItem(at: indexPath, animated: true)
+        let sectionType = SectionType(rawValue: indexPath.section)
+        
+        switch sectionType {
+        case .newReleases:
+            guard let album = appEnvironment.repoSpotify.newReleases?.albums.items[indexPath.row] else { return }
+            let vc = VCAlbum(album: album, appEnvironment: appEnvironment)
+            vc.navigationItem.largeTitleDisplayMode = .never
+            navigationController?.pushViewController(vc, animated: true)
+        case .featuredPlaylists:
+            guard let playlist = appEnvironment.repoSpotify.featuredPlaylists?.playlists.items[indexPath.row] else { return }
+            let vc = VCPlaylist(playlist: playlist, appEnvironment: appEnvironment)
+            vc.navigationItem.largeTitleDisplayMode = .never
+            navigationController?.pushViewController(vc, animated: true)
+        case .recommendedTracks:
+            break
+        default:
+            break
+        }
+    }
+    
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return BrowseSectionType.allCases.count
+        return SectionType.allCases.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -188,7 +210,7 @@ extension VCHome: UICollectionViewDataSource, UICollectionViewDelegate, UICollec
             return UICollectionViewCell()
         }
         
-        let sectionType = BrowseSectionType(rawValue: indexPath.section)
+        let sectionType = SectionType(rawValue: indexPath.section)
         switch sectionType {
         case .newReleases:
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CVCNewRelease.identifier, for: indexPath) as? CVCNewRelease else {

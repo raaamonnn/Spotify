@@ -14,7 +14,7 @@ struct VMRecommendedTrack {
     
     init(recommendedTrack: AudioTrack) {
         name = recommendedTrack.name
-        artworkUrl = URL(string: recommendedTrack.album.images.first?.url ?? "")
+        artworkUrl = URL(string: recommendedTrack.album?.images.first?.url ?? "")
         artistName = recommendedTrack.name
     }
 }

@@ -8,7 +8,7 @@
 import Foundation
 
 final class REPOSpotify {
-    let svcSpotify: SVCSpotify
+    private let svcSpotify: SVCSpotify
     var userProfile: UserProfile?
     var newReleases: NewReleasesResponse?
     var featuredPlaylists: FeaturedPlaylistsResponse?
@@ -19,6 +19,26 @@ final class REPOSpotify {
         self.svcSpotify = svcSpotify
     }
     
+    public func getAlbumDetails(for album: Album, completion: @escaping (Result<AlbumDetails, Error>) -> Void) {
+        svcSpotify.getAlbumDetails(for: album) { (result) in
+            switch result {
+            case .success(let model):
+                completion(.success(model))
+            case .failure(let error):
+                completion(.failure(error))
+            }
+        }
+    }
+    public func getPlaylistDetails(for playlist: Playlist, completion: @escaping (Result<PlaylistDetails, Error>) -> Void) {
+        svcSpotify.getPlaylistDetails(for: playlist) { (result) in
+            switch result {
+            case .success(let model):
+                completion(.success(model))
+            case .failure(let error):
+                completion(.failure(error))
+            }
+        }
+    }
     public func loadData(completionHandler: @escaping () -> Void) {
         
         let group = DispatchGroup()

@@ -24,8 +24,33 @@ struct Playlist: Codable {
     let owner: User
 }
 
+struct PlaylistDetails: Codable {
+    let collaborative: Bool
+    let description: String?
+    let external_urls: [String: String]
+    let followers: Followers
+    let href, id: String
+    let images: [SpotifyImage]
+    let name: String
+    let owner: User
+    let tracks: PlaylistTrackResponse
+}
+
+struct PlaylistTrackResponse: Codable {
+    let items: [PlaylistItem]
+}
+
+struct PlaylistItem: Codable {
+    let track: AudioTrack
+}
+
+struct Followers: Codable {
+    let total: Int
+}
+
 struct User: Codable {
     let display_name: String
     let external_urls: [String: String]
+    let followers: Followers?
     let id: String
 }
