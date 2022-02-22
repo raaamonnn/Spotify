@@ -13,27 +13,28 @@ class CRVHeader: UICollectionReusableView {
     private let label: UILabel = {
         let label = UILabel()
         label.text = "header"
-        label.textColor = .blue
-        label.font = .systemFont(ofSize: 20, weight: .semibold)
+        label.textColor = .secondaryLabel
+        label.numberOfLines = 1
+        label.font = .systemFont(ofSize: 18, weight: .semibold)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+        backgroundColor = .systemBackground
         addSubview(label)
+        NSLayoutConstraint.activate([
+            label.leadingAnchor.constraint(equalTo: leadingAnchor),
+            label.topAnchor.constraint(equalTo: topAnchor),
+        ])
+        
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     func configure(header: String) {
-        
-        backgroundColor = .red
         label.text = header
-    }
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        label.frame = bounds
     }
 }

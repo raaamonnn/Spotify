@@ -133,8 +133,8 @@ extension VCPlaylist: UICollectionViewDataSource, UICollectionViewDelegate, UICo
     }
 }
 
-extension VCPlaylist: CRVPlaylistHeaderDelegate {
-    func CRVPlaylistHeaderDelegateDidTapPlayAll(_ header: CRVPlaylistHeader) {
+extension VCPlaylist: DidTapPlayAllDelegate {
+    func didTapPlayAll(_ header: UICollectionReusableView) {
         print("Clicked Play All")
     }
 }

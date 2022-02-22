@@ -38,3 +38,26 @@ enum HttpMethod: String {
     case POST
     case GET
 }
+
+extension DateFormatter {
+    static let dateFormatter: DateFormatter = {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "YYYY-MM-dd"
+        return dateFormatter
+    }()
+    
+    static let displayDateFormatter: DateFormatter = {
+       let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = .long
+        return dateFormatter
+    }()
+}
+
+extension String {
+    func formattedDate() -> String {
+        guard let date = DateFormatter.dateFormatter.date(from: self) else {
+            return self
+        }
+        return DateFormatter.displayDateFormatter.string(from: date)
+    }
+}

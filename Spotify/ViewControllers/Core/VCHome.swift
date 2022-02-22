@@ -34,6 +34,13 @@ class VCHome: UIViewController {
     
     private static func createSectionLayout(index: SectionType) -> NSCollectionLayoutSection {
         
+        let headerView = [
+            NSCollectionLayoutBoundarySupplementaryItem(
+                layoutSize: NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .absolute(30)),
+                elementKind: UICollectionView.elementKindSectionHeader,
+                alignment: .top)
+        ]
+        
         switch index {
         case .newReleases:
             //Item
@@ -65,6 +72,7 @@ class VCHome: UIViewController {
             section.orthogonalScrollingBehavior = .groupPaging
             section.interGroupSpacing = 8
             section.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 16, bottom: 32, trailing: 16)
+            section.boundarySupplementaryItems = headerView
             return section
             
         case .featuredPlaylists:
@@ -96,6 +104,7 @@ class VCHome: UIViewController {
             section.orthogonalScrollingBehavior = .continuous
             section.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 16, bottom: 0, trailing: 16)
             section.interGroupSpacing = 2
+            section.boundarySupplementaryItems = headerView
             return section
             
         case .recommendedTracks:
@@ -117,6 +126,7 @@ class VCHome: UIViewController {
             //Section
             let section = NSCollectionLayoutSection(group: verticalGroup)
             section.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 16, bottom: 32, trailing: 16)
+            section.boundarySupplementaryItems = headerView
             return section
         }
     }
@@ -150,7 +160,7 @@ class VCHome: UIViewController {
         collectionView.register(CVCNewRelease.self, forCellWithReuseIdentifier: CVCNewRelease.identifier)
         collectionView.register(CVCFeaturedPlaylist.self, forCellWithReuseIdentifier: CVCFeaturedPlaylist.identifier)
         collectionView.register(CVCRecommendedTrack.self, forCellWithReuseIdentifier: CVCRecommendedTrack.identifier)
-//        collectionView.register(CRVHeader.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: CRVHeader.identifier)
+        collectionView.register(CRVHeader.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: CRVHeader.identifier)
         
         collectionView.dataSource = self
         collectionView.delegate = self
@@ -235,16 +245,21 @@ extension VCHome: UICollectionViewDataSource, UICollectionViewDelegate, UICollec
         }
     }
     
-//    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-////        if indexPath.section == 1 {
-//            let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: CRVHeader.identifier, for: indexPath) as! CRVHeader
-//            header.configure(header: "Featured Playlists")
-//            return header
-////        }
-////        return UICollectionReusableView()
-//    }
-//
-//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
-//        return CGSize(width: view.frame.size.width, height: 200)
-//    }
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        guard let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: CRVHeader.identifier, for: indexPath) as? CRVHeader, kind == UICollectionView.elementKindSectionHeader else {
+            return UICollectionReusableView()
+        }
+        let sectionType = SectionType(rawValue: indexPath.section)
+        switch sectionType {
+        case .newReleases:
+            header.configure(header: "New Releases")
+        case .featuredPlaylists:
+            header.configure(header: "Featured Playlists")
+        case .recommendedTracks:
+            header.configure(header: "Recommended Tracks")
+        case .none:
+            header.configure(header: "New")
+        }
+        return header
+    }
 }

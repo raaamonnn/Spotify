@@ -1,17 +1,14 @@
 //
-//  CRVPlaylistHeader.swift
+//  CRVAlbumHeader.swift
 //  Spotify
 //
-//  Created by Ramon Amini on 2/20/22.
+//  Created by Ramon Amini on 2/21/22.
 //
 
 import UIKit
 import SDWebImage
 
-protocol DidTapPlayAllDelegate: AnyObject {
-    func didTapPlayAll(_ header: UICollectionReusableView)
-}
-final class CRVPlaylistHeader: UICollectionReusableView {
+final class CRVAlbumHeader: UICollectionReusableView {
     static let identifier = "CRVPlaylistHeader"
     weak var delegate: DidTapPlayAllDelegate?
     
@@ -33,7 +30,7 @@ final class CRVPlaylistHeader: UICollectionReusableView {
         return label
     }()
     
-    private let playlistDescription: UILabel = {
+    private let playlistDate: UILabel = {
         let label = UILabel()
         label.numberOfLines = 2
         label.font = .systemFont(ofSize: 16, weight: .semibold)
@@ -42,7 +39,7 @@ final class CRVPlaylistHeader: UICollectionReusableView {
         return label
     }()
     
-    private let playlistOwner: UILabel = {
+    private let artistName: UILabel = {
         let label = UILabel()
         label.numberOfLines = 1
         label.font = .systemFont(ofSize: 14, weight: .regular)
@@ -67,8 +64,8 @@ final class CRVPlaylistHeader: UICollectionReusableView {
         super.init(frame: frame)
         addSubview(playlistImage)
         addSubview(name)
-        addSubview(playlistDescription)
-        addSubview(playlistOwner)
+        addSubview(playlistDate)
+        addSubview(artistName)
         addSubview(playButton)
         
         playButton.addTarget(self, action: #selector(didTapPlayAll), for: .touchUpInside)
@@ -83,13 +80,13 @@ final class CRVPlaylistHeader: UICollectionReusableView {
             name.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
             name.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
 
-            playlistDescription.topAnchor.constraint(equalTo: name.bottomAnchor, constant: 4),
-            playlistDescription.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
-            playlistDescription.trailingAnchor.constraint(equalTo: playButton.leadingAnchor, constant: -8),
+            playlistDate.topAnchor.constraint(equalTo: name.bottomAnchor, constant: 4),
+            playlistDate.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
+            playlistDate.trailingAnchor.constraint(equalTo: playButton.leadingAnchor, constant: -8),
 
-            playlistOwner.topAnchor.constraint(equalTo: playlistDescription.bottomAnchor, constant: 4),
-            playlistOwner.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
-            playlistOwner.trailingAnchor.constraint(equalTo: playButton.leadingAnchor, constant: -8),
+            artistName.topAnchor.constraint(equalTo: playlistDate.bottomAnchor, constant: 4),
+            artistName.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
+            artistName.trailingAnchor.constraint(equalTo: playButton.leadingAnchor, constant: -8),
 
             playButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
             playButton.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -16),
@@ -109,10 +106,10 @@ final class CRVPlaylistHeader: UICollectionReusableView {
         super.layoutSubviews()
     }
     
-    func configure(with viewModel: VMPlaylistHeader) {
+    func configure(with viewModel: VMAlbumHeader) {
         playlistImage.sd_setImage(with: viewModel.playlistCover, completed: nil)
         name.text = viewModel.name
-        playlistDescription.text = viewModel.playlistDescription
-        playlistOwner.text = viewModel.creatorName
+        playlistDate.text = viewModel.date
+        artistName.text = viewModel.artistNames
     }
 }

@@ -42,6 +42,10 @@
 		EB5A55B427C051F800A7584B /* VMRecommendedTrack.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5A55B327C051F800A7584B /* VMRecommendedTrack.swift */; };
 		EB5A55B727C09B3D00A7584B /* CRVHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5A55B627C09B3D00A7584B /* CRVHeader.swift */; };
 		EBAD353627B85A6900744E95 /* SVCSpotify.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBAD353527B85A6900744E95 /* SVCSpotify.swift */; };
+		EBC06E4427C468C500F72F0B /* CVCAlbumTrack.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC06E4327C468C500F72F0B /* CVCAlbumTrack.swift */; };
+		EBC06E4727C4714100F72F0B /* VMAlbumTrack.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC06E4627C4714100F72F0B /* VMAlbumTrack.swift */; };
+		EBC06E4A27C4727A00F72F0B /* CRVAlbumHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC06E4927C4727A00F72F0B /* CRVAlbumHeader.swift */; };
+		EBC06E4D27C473E700F72F0B /* VMAlbumHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC06E4C27C473E700F72F0B /* VMAlbumHeader.swift */; };
 		EBD4CED227BB021900BDA3C2 /* Album.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBD4CED127BB021900BDA3C2 /* Album.swift */; };
 		EBD4CED627BB2E7900BDA3C2 /* RecommendedGenres.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBD4CED527BB2E7900BDA3C2 /* RecommendedGenres.swift */; };
 		EBD4CED927BB34B300BDA3C2 /* Recommendations.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBD4CED827BB34B300BDA3C2 /* Recommendations.swift */; };
@@ -91,6 +95,10 @@
 		EB5A55B327C051F800A7584B /* VMRecommendedTrack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VMRecommendedTrack.swift; sourceTree = "<group>"; };
 		EB5A55B627C09B3D00A7584B /* CRVHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CRVHeader.swift; sourceTree = "<group>"; };
 		EBAD353527B85A6900744E95 /* SVCSpotify.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SVCSpotify.swift; sourceTree = "<group>"; };
+		EBC06E4327C468C500F72F0B /* CVCAlbumTrack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CVCAlbumTrack.swift; sourceTree = "<group>"; };
+		EBC06E4627C4714100F72F0B /* VMAlbumTrack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VMAlbumTrack.swift; sourceTree = "<group>"; };
+		EBC06E4927C4727A00F72F0B /* CRVAlbumHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CRVAlbumHeader.swift; sourceTree = "<group>"; };
+		EBC06E4C27C473E700F72F0B /* VMAlbumHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VMAlbumHeader.swift; sourceTree = "<group>"; };
 		EBD4CED127BB021900BDA3C2 /* Album.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Album.swift; sourceTree = "<group>"; };
 		EBD4CED527BB2E7900BDA3C2 /* RecommendedGenres.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendedGenres.swift; sourceTree = "<group>"; };
 		EBD4CED827BB34B300BDA3C2 /* Recommendations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recommendations.swift; sourceTree = "<group>"; };
@@ -186,6 +194,8 @@
 				EB5A55B027C0514200A7584B /* VMFeaturedPlaylist.swift */,
 				EB5A55B327C051F800A7584B /* VMRecommendedTrack.swift */,
 				EB304BD327C33E560021D40A /* VMPlaylistHeader.swift */,
+				EBC06E4627C4714100F72F0B /* VMAlbumTrack.swift */,
+				EBC06E4C27C473E700F72F0B /* VMAlbumHeader.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -278,6 +288,7 @@
 			children = (
 				EB304BCE27C3321A0021D40A /* CRVPlaylistHeader.swift */,
 				EB5A55B627C09B3D00A7584B /* CRVHeader.swift */,
+				EBC06E4927C4727A00F72F0B /* CRVAlbumHeader.swift */,
 			);
 			path = "Collection Reusable View";
 			sourceTree = "<group>";
@@ -288,6 +299,7 @@
 				EBDEE8B027BF027E000FC0DF /* CVCNewRelease.swift */,
 				EBDEE8B327BF0290000FC0DF /* CVCFeaturedPlaylist.swift */,
 				EBDEE8B627BF02A2000FC0DF /* CVCRecommendedTrack.swift */,
+				EBC06E4327C468C500F72F0B /* CVCAlbumTrack.swift */,
 			);
 			path = "Collection View Cells";
 			sourceTree = "<group>";
@@ -412,7 +424,9 @@
 				EB5A55B727C09B3D00A7584B /* CRVHeader.swift in Sources */,
 				EB22144B27B5C36800937EEE /* VCAuth.swift in Sources */,
 				EB22148627B5D2F400937EEE /* VCHome.swift in Sources */,
+				EBC06E4427C468C500F72F0B /* CVCAlbumTrack.swift in Sources */,
 				EB22148127B5CB4600937EEE /* Playlist.swift in Sources */,
+				EBC06E4727C4714100F72F0B /* VMAlbumTrack.swift in Sources */,
 				EB22146327B5C6D900937EEE /* VCSearchResults.swift in Sources */,
 				EB22147527B5C94C00937EEE /* AppEnvironment.swift in Sources */,
 				EB2E634D27BA026C00BB633D /* REPOSpotify.swift in Sources */,
@@ -425,6 +439,7 @@
 				EB2214A627B60A0700937EEE /* IBView.swift in Sources */,
 				EB2214A327B609FF00937EEE /* IBButton.swift in Sources */,
 				EBAD353627B85A6900744E95 /* SVCSpotify.swift in Sources */,
+				EBC06E4D27C473E700F72F0B /* VMAlbumHeader.swift in Sources */,
 				EBDEE8B427BF0290000FC0DF /* CVCFeaturedPlaylist.swift in Sources */,
 				EBDEE8B727BF02A2000FC0DF /* CVCRecommendedTrack.swift in Sources */,
 				EB22141927B5B9A900937EEE /* AppDelegate.swift in Sources */,
@@ -440,6 +455,7 @@
 				EBD4CED627BB2E7900BDA3C2 /* RecommendedGenres.swift in Sources */,
 				EBDEE8B127BF027E000FC0DF /* CVCNewRelease.swift in Sources */,
 				EB22145E27B5C55B00937EEE /* VCPlaylist.swift in Sources */,
+				EBC06E4A27C4727A00F72F0B /* CRVAlbumHeader.swift in Sources */,
 				EB3964A627B761910005B6C4 /* AuthResponse.swift in Sources */,
 				EB5A55B427C051F800A7584B /* VMRecommendedTrack.swift in Sources */,
 				EB22143927B5C2A000937EEE /* VCTabBar.swift in Sources */,
